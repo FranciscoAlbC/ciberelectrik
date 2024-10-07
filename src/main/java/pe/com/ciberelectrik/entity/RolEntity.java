@@ -3,10 +3,12 @@ package pe.com.ciberelectrik.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,27 +29,5 @@ public class RolEntity implements Serializable {
     @Column(name="estado")
     private boolean estado;
 
-    public long getCodigo() {
-        return codigo;
-    }
 
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 }

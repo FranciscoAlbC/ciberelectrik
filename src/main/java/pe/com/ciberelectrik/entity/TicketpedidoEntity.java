@@ -3,11 +3,13 @@ package pe.com.ciberelectrik.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,43 +38,5 @@ public class TicketpedidoEntity implements Serializable {
     @JoinColumn(name="codemp", nullable = false)
     private EmpleadoEntity  empleado;
 
-    public long getNumero() {
-        return numero;
-    }
 
-    public void setNumero(long numero) {
-        this.numero = numero;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    public ClienteEntity getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(ClienteEntity cliente) {
-        this.cliente = cliente;
-    }
-
-    public EmpleadoEntity getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(EmpleadoEntity empleado) {
-        this.empleado = empleado;
-    }
 }
