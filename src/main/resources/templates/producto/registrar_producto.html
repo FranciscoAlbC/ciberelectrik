@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CiberElectrk - Registro Producto</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+    />
+</head>
+<body>
+<div class="container">
+    <!-- inicio del card -->
+    <div class="card">
+        <div class="card-header">
+            <h1>Registro de Productos</h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/registrarproducto}" method="post" th:object="${producto}">
+                <div class="col-4">
+                    <label for="txtNomPro" class="form-label">Nombre:</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="txtNomPro"
+                            name="txtNomPro"
+                            th:field="*{nombre}"
+                            required
+                    />
+                </div>
+                <div class="col-4">
+                    <label for="txtDesPro" class="form-label">Descripcion:</label>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="txtDesPro" name="txtDesPro" rows="3" th:field="*{descripcion}" required></textarea>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <label for="txtPrePro" class="form-label">Precio:</label>
+                    <input
+                            type="number"
+                            class="form-control"
+                            id="txtPrePro"
+                            name="txtPrePro"
+                            th:field="*{precio}"
+                            required
+                    />
+                </div>
+
+                <div class="col-4">
+                    <label for="txtCanPro" class="form-label">Cantidad:</label>
+                    <input
+                            type="number"
+                            class="form-control"
+                            id="txtCanPro"
+                            name="txtCanPro"
+                            th:field="*{cantidad}"
+                            required
+
+                    />
+                </div>
+
+                <div class="col-4">
+                    <label for="cboMarca" class="form-label">Marca:</label>
+                    <select class="form-select" id="cboMarca" name="cboMarca" th:field="*{marca}">
+                        <option value="0">Seleccione una Marca</option>
+                        <option th:each="marca:${marcas}" th:value="${marca.id}" th:text="${marca.nombre}"></option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label for="cboCategoria" class="form-label">Categoria:</label>
+                    <select class="form-select" id="cboCategoria" name="cboCategoria" th:field="*{categoria}">
+                        <option value="0">Seleccione una categoria</option>
+                        <option th:each="categoria:${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}" ></option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label for="chkEstPro" class="form-label">Estado:</label>
+                    <div class="mb-3 form-check">
+                        <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="chkEstPro"
+                                name="chkEstPro"
+                                th:field="*{estado}"
+                        />
+                        <label class="form-check-label" for="chkEstPro"
+                        >Habilitado</label
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/menuprincipal}" class="btn btn-secondary"
+            >Regresar al menu principal</a
+            >
+        </div>
+    </div>
+    <!-- fin del card -->
+</div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+
+></script>
+</body>
+</html>
